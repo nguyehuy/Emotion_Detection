@@ -30,16 +30,12 @@ def read_label(X):
         i+=1
     return label_to_index, index_to_lable
 
-X=['a', 'b','c', 'a']
-label_to_index, index_to_lable=read_label(X)
-print(label_to_index)
-print(index_to_lable)
+
 
 def one_hot_vector(X):
     lable_to_index,_=read_label(X)
     X_encode=np.asarray([lable_to_index[i] for i in X])
     return np.eye(len(lable_to_index))[X_encode.reshape(-1)]
 
-X=['a', 'b','c', 'a']
-print(one_hot_vector(X))
+
 
