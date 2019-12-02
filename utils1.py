@@ -98,4 +98,12 @@ def read_glove():
         return word_to_vec_map, word_to_index, index_to_word
 
 
-def convert_string_to_indices(text, word)
+def convert_string_to_indices(X, word_to_index, max_len):
+    X_indices= np.zeros((X.shape[0], max_len))
+    for i in range(X.shape[0]):
+        j=0
+        for word in X[i].split():
+            if word in word_to_index:
+                X_indices[i,j]=word_to_index[word]
+                j+=1
+    return X_indices
